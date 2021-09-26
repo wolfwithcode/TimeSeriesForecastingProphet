@@ -19,6 +19,16 @@ def get_stock_price(symbol):
     return df
 
 
-symbol = 'COST'
-df = get_stock_price(symbol)
-df.to_csv('stock.csv')
+# symbol = 'COST'
+# df = get_stock_price(symbol)
+# df.to_csv('stock.csv')
+
+
+TICKER = "AAPL"
+
+df = yf.download(TICKER,
+                 start="2021-01-01",
+                 end="2021-05-30")
+
+# df["Close"].plot(title=f"{TICKER}'s stock price")
+df.to_csv('AAPL.csv')
